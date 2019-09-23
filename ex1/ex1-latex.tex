@@ -1,0 +1,69 @@
+\documentclass{article}
+\begin{document}
+
+{\bf G53KRR 2018 first formal/assessed exercise ex1}\\
+
+Your name: Junsong Yang
+
+Your user name: psyjy3
+
+
+\begin{enumerate}
+\item Express the following sentences in first order logic using predicate
+symbols $Student$ (unary, $Student(a)$ means $a$ is a student), $Tutor$ (binary,
+$Tutor(b,a)$ means $b$ is $a$'s tutor), $Lazy$ (unary), $Happy$ (unary):
+
+\begin{description}
+\item[S1] Every student has a tutor.
+\item[ANS 1] $\forall x \exists y (Student(x) \supset Tutor(y,x)) $ 
+\item[S2] There are no lazy students.
+\item[ANS 2] $\forall x (Student(x) \supset \neg Lazy(x)) $
+\item[S3] No student has two different tutors. \emph{Hint: use $=$}
+\item[ANS 3] $\forall x \forall y \forall z (Student(x) \supset ( Tutor(y,x) \wedge Tutor(z,x) \supset y = z )) $
+\item[S4] If a student is lazy, then the student's tutor is not happy.
+\item[ANS 4] $\exists x \forall y (Student(x) \wedge Lazy(x) \supset Tutor(y,x) \wedge \neg Happy(y) ) $
+\item[S5] There is a tutor all of whose tutees are lazy.
+\item[ANS 5] $\exists x \forall y (Student(y) \supset (Tutor(x,y) \supset Lazy(y) )) $
+\end{description}
+
+\item Consider an interpretation where the domain consists of 4 suitcases
+$a,b,c,d$ where $a$ and $b$ are large and $c$ and $d$ are small. In other words, 
+the predicate symbol $Large$ is interpreted as the set $\{a,b\}$ and $Small$ is
+interpreted as the set $\{c,d\}$. There is also a predicate symbol $FitsIn$ that
+is interpreted as the set of pairs $\{(c,a),(c,b), (d,a), (d,b)\}$ (small suitcases fit inside large  ones).
+Are the following first order sentences true or false in this
+interpretation (and why):
+\begin{description}
+\item[(a)] $\forall x \forall y (Large(x) \wedge Small(y) \supset FitsIn(x,y))$
+\newline \textbf{False.} Only small suitcases can fit in large suitcases, since x is large suitcases, it cannot fit in small suitcases. FitsIn(x,y) doesnot hold.
+\item[(b)] $\forall x \forall y (Large(x) \wedge Small(y) \supset FitsIn(y,x))$
+\newline \textbf{True.} Small suitcases can always fit in large suitcases.
+\item[(c)] $\exists x \forall y FitsIn(x,y)$
+\newline \textbf{False.} for x = c or x = d, then not every y such that FitsIn(x,y) holds (it doesnot hold for y = c or y = d). For x = a or x = b, there is no y such that FitsIn(x,y) holds. 
+\item[(d)] $\forall x \exists y \neg FitsIn(x,y)$
+\newline \textbf{True.} For x = a or x = b, there is no value of y such that FitsIn(x,y) holds. For x = c or x = d, the value of y is c or d such that FitsIn(x,y) doesnot hold.   
+\item[(e)] $\forall x \forall y (\neg FitsIn(x,y) \vee \neg FitsIn(y,x))$
+\newline \textbf{True.} For x = a or x = b, there is no y such that FitsIn(x,y) holds. For x = c or x = d, there is no y such that FitsIn(y,x) holds. 
+\end{description}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
